@@ -1,6 +1,7 @@
 {
   "name": "create-next-example-app",
   "scripts": {
+    "build": "next build",
     "start": "node server"
   },
   "dependencies": {
