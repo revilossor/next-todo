@@ -2,11 +2,13 @@
   "name": "create-next-example-app",
   "scripts": {
     "build": "next build",
-    "start": "node server"
+    "start": "nodemon server"
   },
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.3.8",
     "next": "7.0.2",
+    "nodemon": "^1.18.5",
     "react": "16.6.0",
     "react-dom": "16.6.0",
     "styled-components": "^4.0.3",

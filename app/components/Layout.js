@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
 const Stage = styled.div`
   background-color: ${props => props.colour};
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 10vh 1fr;
+  grid-template-columns: ${props => props.columns};
+  grid-template-rows: ${props => props.rows};
   grid-gap: 10px;
   width: 100vw;
   height: 100vh;
@@ -21,7 +21,7 @@ const Stage = styled.div`
 const Layout = props => (
   <Fragment>
     <GlobalStyle />
-    <Stage>{props.children}</Stage>
+    <Stage {...props}>{props.children}</Stage>
   </Fragment>
 );
 
