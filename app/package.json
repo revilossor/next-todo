@@ -1,13 +1,17 @@
 {
   "name": "create-next-example-app",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "start": "node server"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "next": "7.0.2",
     "react": "16.6.0",
-    "react-dom": "16.6.0"
+    "react-dom": "16.6.0",
+    "styled-components": "^4.0.3",
+    "styled-reset": "^1.6.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0"
   }
 }
