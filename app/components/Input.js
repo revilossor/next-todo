@@ -7,9 +7,10 @@ const TextField = styled.input`
   width: 100%;
   height: 100%;
   font-size: 5rem;
+  text-align: center;
 
   &::placeholder {
-    color: #c2c2c2;
+    color: #626265;
   }
 `;
 

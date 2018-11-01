@@ -5,37 +5,22 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const api = require("./api");
+const bodyParser = require("body-parser");
 const store = require("./store");
-
-const testUser = "testUser";
 
 store
   .connect()
   .then(db => {
     console.log("store connected");
 
-    const todo = "make the todo status work " + Date.now();
-
-    store.add(testUser, todo).then(todo => {
-      console.log("added todo " + todo);
-      store.list(testUser).then(todos => {
-        console.log("todos for " + testUser + " : ");
-        console.dir(todos);
-      });
-      console.log("updating todo : " + todo);
-      store.update(testUser, todo, "doing").then(() => {
-        console.log("updated todo " + todo + " to doing");
-        store.list(testUser).then(todos => {
-          console.log("todos for " + testUser + " : ");
-          console.dir(todos);
-        });
-      });
-    });
-
-    console.log("starting next app...");
-
     app.prepare().then(() => {
       const server = express();
+
+      server.use(bodyParser.json());
+      server.use(bodyParser.urlencoded({ extended: true }));
+
+      server.use("/api", api);
 
       server.get("*", handle);
 

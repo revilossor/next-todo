@@ -2,12 +2,15 @@
   "name": "create-next-example-app",
   "scripts": {
     "build": "next build",
-    "start": "nodemon server"
+    "start": "nodemon --watch server"
   },
+  "main": "server",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.3.8",
     "next": "7.0.2",
+    "node-fetch": "^2.2.0",
     "nodemon": "^1.18.5",
     "react": "16.6.0",
     "react-dom": "16.6.0",

@@ -6,7 +6,10 @@ mongoose.Promise = global.Promise;
 
 module.exports = {
   connect: () => {
-    mongoose.connect(mongoDB);
+    mongoose.connect(
+      mongoDB,
+      { useNewUrlParser: true }
+    );
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "MongoDB connection error:"));
     return new Promise(resolve => {

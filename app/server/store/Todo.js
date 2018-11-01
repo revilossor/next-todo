@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-module.exports = mongoose.model(
+const Todo = mongoose.model(
   "Todo",
   new mongoose.Schema({
     user: String,
@@ -12,3 +12,5 @@ module.exports = mongoose.model(
     }
   })
 );
+
+module.exports = Todo;
