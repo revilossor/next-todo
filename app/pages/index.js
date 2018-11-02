@@ -6,13 +6,13 @@ import styled from "styled-components";
 import fetch from "isomorphic-unfetch";
 
 const Container = styled.div`
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 `;
 
 const Index = props => (
   <Layout colour="#b1b1b1" columns="1fr" rows="10vh 1fr">
     <Container>
-      <Text size="5rem" colour="#4f4f4f">
+      <Text size="4rem" colour="#4f4f4f">
         todos for "{props.user}"
       </Text>
     </Container>
