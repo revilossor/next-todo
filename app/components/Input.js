@@ -14,6 +14,10 @@ const TextField = styled.input`
   }
 `;
 
-const Input = props => <TextField placeholder={props.placeholder} />;
+const Input = props => (
+  <form onSubmit={props.onSubmit}>
+    <TextField placeholder={props.placeholder} />
+  </form>
+);
 
 export default Input;

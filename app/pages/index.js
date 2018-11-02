@@ -4,14 +4,14 @@ import TodoList from "../components/TodoList";
 
 import fetch from "isomorphic-unfetch";
 
-const user = "testuser";
+const user = "user";
 
 const Index = props => (
   <Layout colour="#b1b1b1" columns="1fr" rows="10vh 1fr">
     <Text size="5rem" colour="#4f4f4f">
-      todos!
+      todos
     </Text>
-    <TodoList todos={props.todos} />
+    <TodoList user={user} todos={props.todos} />
   </Layout>
 );
 

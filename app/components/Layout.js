@@ -23,7 +23,7 @@ const Stage = styled.div`
 const Layout = props => (
   <Fragment>
     <GlobalStyle />
-    <Stage {...props}>{props.children}</Stage>;
+    <Stage {...props}>{props.children}</Stage>
   </Fragment>
 );
 
