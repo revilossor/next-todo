@@ -23,13 +23,13 @@ module.exports = {
         body
       });
       todo.save(err => {
-        err ? reject(err) : resolve(todo.body);
+        err ? reject(err) : resolve({ body, status: "todo" });
       });
     });
   },
   list: user => {
     return new Promise((resolve, reject) => {
-      Todo.find({ user: user }, "body status", (err, todos) => {
+      Todo.find({ user }, "body status", (err, todos) => {
         err
           ? reject(err)
           : resolve(todos.map(({ body, status }) => ({ body, status })));
@@ -39,7 +39,7 @@ module.exports = {
   update: (user, body, status) => {
     return new Promise((resolve, reject) => {
       Todo.updateMany({ user, body }, { status }, {}, err => {
-        err ? reject(err) : resolve();
+        err ? reject(err) : resolve({ body, status });
       });
     });
   }

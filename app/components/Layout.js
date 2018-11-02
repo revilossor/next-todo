@@ -1,12 +1,4 @@
-import { Fragment } from "react";
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
-
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC');
-`;
 
 const Stage = styled.div`
   background-color: ${props => props.colour};
@@ -18,11 +10,6 @@ const Stage = styled.div`
   height: 100vh;
 `;
 
-const Layout = props => (
-  <Fragment>
-    <GlobalStyle />
-    <Stage {...props}>{props.children}</Stage>
-  </Fragment>
-);
+const Layout = props => <Stage {...props}>{props.children}</Stage>;
 
 export default Layout;

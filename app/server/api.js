@@ -14,4 +14,10 @@ router
     });
   });
 
+router.route("/todo/update/:user").post((req, res) => {
+  store.update(req.params.user, req.body.status).then(todos => {
+    res.json(todos);
+  });
+});
+
 module.exports = router;
