@@ -1,9 +1,22 @@
-import { Fragment } from "react";
+import { Fragment, Component } from "react";
 import styled from "styled-components";
 
 import Input from "./Input";
-import Layout from "./Layout";
 
-const TodoList = props => <Layout colour="#818181" columns="1fr" rows="90vh" />;
+export default class TodoList extends Component {
+  state = {
+    todos: this.props.todos
+  };
 
-export default TodoList;
+  render() {
+    const {
+      state: { todos }
+    } = this;
+    return (
+      <Fragment>
+        <h1>{todos}</h1>
+        <Input placeholder="add new todo" />
+      </Fragment>
+    );
+  }
+}
