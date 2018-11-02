@@ -8,6 +8,7 @@ const TextField = styled.input`
   height: 100%;
   font-size: 5rem;
   text-align: center;
+  border: none;
 
   &::placeholder {
     color: #626265;

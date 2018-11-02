@@ -34,9 +34,7 @@ export default class TodoList extends Component {
     return (
       <Fragment>
         <h1>
-          {todos.map(
-            todo => `< body: ${todo.body}, status: ${todo.status} >\n`
-          )}
+          {todos.map(todo => `< body: ${todo.body}, status: ${todo.status} >`)}
         </h1>
         <Input
           name="input"
