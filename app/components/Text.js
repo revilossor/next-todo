@@ -5,6 +5,7 @@ const Text = styled.h1`
   color: ${props => props.colour};
   font-size: ${props => props.size};
   text-align: center;
+  overflow-wrap: break-word;
 `;
 
 export default Text;

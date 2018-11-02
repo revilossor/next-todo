@@ -1,9 +1,10 @@
 import { Fragment, Component } from "react";
-import ReactList from "react-list";
 import styled from "styled-components";
+import ReactList from "react-list";
 import fetch from "isomorphic-unfetch";
 
 import Input from "./Input";
+import Todo from "./Todo";
 
 const ListContainer = styled.div`
   overflow: auto;
@@ -22,12 +23,7 @@ export default class TodoList extends Component {
   };
 
   renderTodo(index, key) {
-    const todo = this.state.todos[index];
-    return (
-      <div key={key}>
-        <h1>{`< body: ${todo.body}, status: ${todo.status} >`}</h1>
-      </div>
-    );
+    return <Todo src={this.state.todos[index]} key={key} index={index} />;
   }
 
   post(uri, body) {
@@ -61,13 +57,13 @@ export default class TodoList extends Component {
           <ReactList
             itemRenderer={this.renderTodo.bind(this)}
             length={this.state.todos.length}
-            type="uniform"
+            type="variable"
           />
         </ListContainer>
         <Input
           name="input"
           onSubmit={this.handleInput.bind(this)}
-          placeholder="add new todo"
+          placeholder="add"
         />
       </Fragment>
     );
