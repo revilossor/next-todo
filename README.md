@@ -1,16 +1,5 @@
-```
-  docker-compose up
-```
+## Running it
 
-```
-  docker-compose down
-```
+You'll need [docker](https://store.docker.com/editions/community/docker-ce-desktop-mac) installed, then do `docker-compose up` to start the app. It'll be on [localhost:3000](http://localhost:3000)
 
-// build should be a bundle with the .next folder, and server, and packages for installing.
-// have to tell next to build to different place
-
-have to rebuild if add package!
-
-```
-  docker-compose up --build
-```
+Its a todolist app - go to /<some_user_id> to see the todos for that user
