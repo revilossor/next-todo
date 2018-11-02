@@ -49,12 +49,15 @@ export default class TodoList extends Component {
       todo: e.target.firstChild.data
     }).then(updated => {
       this.setState({
-        todos: this.state.todos.map(
-          todo =>
-            todo.body === updated.body
-              ? { ...todo, status: updated.status }
-              : todo
-        )
+        todos:
+          updated.status === "delete"
+            ? this.state.todos.filter(todo => todo.body !== updated.body)
+            : this.state.todos.map(
+                todo =>
+                  todo.body === updated.body
+                    ? { ...todo, status: updated.status }
+                    : todo
+              )
       });
     });
   }

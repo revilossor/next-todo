@@ -48,9 +48,11 @@ module.exports = {
           return reject(err);
         }
         const status = statusMap[todo.status];
-        Todo.updateMany({ user, body }, { status }, {}, err => {
-          err ? reject(err) : resolve({ body, status });
-        });
+        status === "delete"
+          ? Todo.deleteOne({ user, body }).then(resolve({ body, status }))
+          : Todo.updateMany({ user, body }, { status }, {}, err => {
+              err ? reject(err) : resolve({ body, status });
+            });
       });
     });
   }

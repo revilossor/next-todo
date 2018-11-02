@@ -15,9 +15,14 @@ router
   });
 
 router.route("/todo/bump/:user").post((req, res) => {
-  store.bump(req.params.user, req.body.todo).then(todos => {
-    res.json(todos);
-  });
+  store
+    .bump(req.params.user, req.body.todo)
+    .then(todos => {
+      res.json(todos);
+    })
+    .catch(err => {
+      console.dir(err);
+    });
 });
 
 module.exports = router;
