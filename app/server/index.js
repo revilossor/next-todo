@@ -23,6 +23,10 @@ store
 
       server.use("/api", api);
 
+      server.get("/:user", (req, res) => {
+        app.render(req, res, "/", { user: req.params.user });
+      });
+
       server.get("*", handle);
 
       server.listen(3000, err => {
