@@ -6,6 +6,7 @@ const Text = styled.h1`
   font-size: ${props => props.size};
   text-align: center;
   overflow-wrap: break-word;
+  user-select: none;
 `;
 
 export default Text;

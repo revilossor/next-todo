@@ -14,8 +14,8 @@ router
     });
   });
 
-router.route("/todo/update/:user").post((req, res) => {
-  store.update(req.params.user, req.body.status).then(todos => {
+router.route("/todo/bump/:user").post((req, res) => {
+  store.bump(req.params.user, req.body.todo).then(todos => {
     res.json(todos);
   });
 });

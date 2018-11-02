@@ -23,7 +23,14 @@ export default class TodoList extends Component {
   };
 
   renderTodo(index, key) {
-    return <Todo src={this.state.todos[index]} key={key} index={index} />;
+    return (
+      <Todo
+        src={this.state.todos[index]}
+        key={key}
+        index={index}
+        onClick={this.handleTodoClick.bind(this)}
+      />
+    );
   }
 
   post(uri, body) {
@@ -34,6 +41,22 @@ export default class TodoList extends Component {
       },
       body: JSON.stringify(body)
     }).then(res => res.json());
+  }
+
+  handleTodoClick(e) {
+    e.preventDefault();
+    this.post("http://localhost:3000/api/todo/bump/" + this.props.user, {
+      todo: e.target.firstChild.data
+    }).then(updated => {
+      this.setState({
+        todos: this.state.todos.map(
+          todo =>
+            todo.body === updated.body
+              ? { ...todo, status: updated.status }
+              : todo
+        )
+      });
+    });
   }
 
   handleInput(e) {

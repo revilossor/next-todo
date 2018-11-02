@@ -3,14 +3,14 @@ import Text from "./Text";
 
 const colours = {
   light: {
-    done: { bg: "#39e639", text: "#008500" },
+    todo: { bg: "#39e639", text: "#008500" },
     doing: { bg: "#ff9640", text: "#a64b00" },
-    todo: { bg: "#ff4040", text: "#a60000" }
+    done: { bg: "#ff4040", text: "#a60000" }
   },
   dark: {
-    done: { bg: "#269926", text: "#67e667" },
+    todo: { bg: "#269926", text: "#67e667" },
     doing: { bg: "#bf7130", text: "#ffb273" },
-    todo: { bg: "#bf3030", text: "#ff7373" }
+    done: { bg: "#bf3030", text: "#ff7373" }
   }
 };
 
@@ -19,6 +19,14 @@ const TodoContainer = styled.div`
     const statusColours = props.index % 2 === 0 ? colours.light : colours.dark;
     return statusColours[props.src.status].bg;
   }};
+  &:hover {
+    border: 0.2rem dashed
+      ${props => {
+        const statusColours =
+          props.index % 2 === 0 ? colours.light : colours.dark;
+        return statusColours[props.src.status].text;
+      }};
+  }
 `;
 
 const Todo = props => (

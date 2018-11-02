@@ -36,10 +36,21 @@ module.exports = {
       });
     });
   },
-  update: (user, body, status) => {
+  bump: (user, body) => {
+    const statusMap = {
+      todo: "doing",
+      doing: "done",
+      done: "delete"
+    };
     return new Promise((resolve, reject) => {
-      Todo.updateMany({ user, body }, { status }, {}, err => {
-        err ? reject(err) : resolve({ body, status });
+      Todo.findOne({ user, body }, "status", (err, todo) => {
+        if (err) {
+          return reject(err);
+        }
+        const status = statusMap[todo.status];
+        Todo.updateMany({ user, body }, { status }, {}, err => {
+          err ? reject(err) : resolve({ body, status });
+        });
       });
     });
   }
