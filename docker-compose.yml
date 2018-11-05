@@ -7,9 +7,12 @@ services:
       - mongo
     volumes:
       - ./app/components:/usr/src/app/components
+      - ./app/cypress:/usr/src/app/cypress
       - ./app/pages:/usr/src/app/pages
       - ./app/server:/usr/src/app/server
       - ./app/static:/usr/src/app/static
+      - ./app/package.json:/usr/src/app/package.json
+      - ./app/cypress.json:/usr/src/app/cypress.json
     ports:
       - "3000:3000"
   mongo:

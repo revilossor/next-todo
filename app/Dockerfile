@@ -1,4 +1,4 @@
-FROM node:8
+FROM cypress/browsers
 
 WORKDIR /usr/src/app
 
