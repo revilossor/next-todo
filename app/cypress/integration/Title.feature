@@ -1,4 +1,4 @@
-Feature: The Title
+Feature: title
 
   I want to see the todo list owners name in the title
 
