@@ -10,9 +10,32 @@ services:
       - ./app/pages:/usr/src/app/pages
       - ./app/server:/usr/src/app/server
       - ./app/static:/usr/src/app/static
+      - ./app/wdio.conf.js:/usr/src/app/wdio.conf.js
+      - ./app/regression:/usr/src/app/regression
     ports:
       - "3000:3000"
   mongo:
     image: mongo
     ports:
       - "27017:27017"
+  hub:
+    image: selenium/hub:3.141.0-actinium
+    container_name: hub
+    depends_on:
+      - app
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:3.141.0-actinium
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+      - HUB_PORT=4444
+  firefox:
+    image: selenium/node-firefox:3.141.0-actinium
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+      - HUB_PORT=4444

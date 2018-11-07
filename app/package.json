@@ -2,7 +2,8 @@
   "name": "create-next-example-app",
   "scripts": {
     "build": "next build",
-    "start": "nodemon --watch server"
+    "start": "nodemon --watch server",
+    "regression": "wdio wdio.conf"
   },
   "main": "server",
   "dependencies": {
@@ -19,6 +20,9 @@
     "styled-reset": "^1.6.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0"
+    "babel-plugin-styled-components": "^1.8.0",
+    "wdio": "^3.0.0",
+    "wdio-cucumber-framework": "^2.2.8",
+    "wdio-dot-reporter": "0.0.10"
   }
 }

@@ -12,7 +12,7 @@ const Container = styled.div`
 const Index = props => (
   <Layout colour="#b1b1b1" columns="1fr" rows="10vh 1fr">
     <Container>
-      <Text size="4rem" colour="#4f4f4f">
+      <Text id="title" size="4rem" colour="#4f4f4f">
         todos for "{props.user}"
       </Text>
     </Container>
