@@ -3,7 +3,7 @@
   "scripts": {
     "build": "next build",
     "start": "nodemon --watch server",
-    "regression": "wdio wdio.conf"
+    "regression": "rm -rf regression/errorShots && wdio wdio.conf"
   },
   "main": "server",
   "dependencies": {

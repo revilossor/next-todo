@@ -9,7 +9,7 @@ const statusColoursRegex = {
 };
 
 Given(/^I open the todo list for (.*)/, user => {
-  browser.url(`http://localhost:3000/${user}`);
+  browser.url(user);
 });
 
 Then(/^I should see the title (.*)/, title => {
